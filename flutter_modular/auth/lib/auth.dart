@@ -8,7 +8,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  String email = "";
+  String user = "";
   String password = "";
 
   @override
@@ -20,7 +20,7 @@ class _LoginScreenState extends State<LoginScreen> {
       child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
         TextField(
           onChanged: (String text) {
-            email = text;
+            user = text;
           },
           keyboardType: TextInputType.emailAddress,
           decoration: const InputDecoration(
@@ -46,8 +46,13 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
         ElevatedButton(
           onPressed: () {
-            if (email == 'david@mpto.gov.br' && password == '123') {
-              print('');
+            if (user == 'david@mpto.mp.br' && password == '123') {
+              /* Navigator.of(context).pushReplacement(
+                MaterialPageRoute(builder: (context) => HomeScreen())
+              ); */
+              Navigator.of(context).pushReplacementNamed('/home');
+            } else {
+              print('Usuário ou Senha Inválidos');
             }
           },
           child: const Text('Enter'),
